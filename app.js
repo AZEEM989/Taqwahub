@@ -125,18 +125,3 @@ getTiming();
 
 
 
-  const getUpdate=async ()=>{
-    const someURL="https://raw.githubusercontent.com/nawafalqari/azkar-api/56df51279ab6eb86dc2f6202c7de26c8948331c1/azkar";
-
-  try{
-    let responsed2=await fetch(someURL);
-    if(!responsed2.ok){
-        throw new Error(`HTTP error! Status: ${responsed2.status}`);
-    }
-    let getFile=await responsed2.json();
-    console.log(getFile.result);
-  }catch(error){
-    console.error("Error fetching data:", error);
-  }
-  };
-  getUpdate();
