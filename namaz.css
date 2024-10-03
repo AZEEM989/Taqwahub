@@ -26,12 +26,15 @@ body{
 }
 .name{
     
-    font-size: 3rem;
+    font-size: 10vw;
+}
+.bismillah{
+    font-size: 9vw;
 }
 .main{
-    margin-top: 2rem;
+    margin-top: 2vh;
     display: flex;
-    padding: 3rem 0 1rem 0;
+    padding: 3vh 0 1vh 0;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
@@ -42,7 +45,7 @@ body{
     
 }
 .counter{
-    font-size: 8rem;
+    font-size: 35vw;
     color: white;
 }
 .mainhead{
@@ -57,17 +60,17 @@ body{
     color: white;
 }
 .tasbeeh{
- font-size: 2rem;
+ font-size: 8vw;
  color: white;
 }
 .count{
-    width: 9rem;
-    height: 7rem;
+    width: 40vw;
+    height: 20vh;
     cursor: pointer;
 }
 .reset{
-    width: 9rem;
-    height: 7rem;
+    width: 40vw;
+    height: 20vh;
     cursor: pointer;
 }
 .note1 h4{
@@ -75,6 +78,7 @@ body{
     color: white;
     font-weight: 200;
     text-align: center;
+    font-size: 3vw;
 }
 .namaz{
     margin-top: 2rem;
@@ -91,7 +95,7 @@ body{
     background-color: rgb(65, 65, 65); 
 }
 body .namaz h1{
-    font-size: 3rem;
+    font-size: 10vw;
     text-decoration: underline;
     color: white;
 }
