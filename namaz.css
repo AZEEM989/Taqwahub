@@ -262,6 +262,9 @@ body .namaz h1 {
 .link a {
     color: #fcff9e;
 }
+.footer span{
+    color:darkgreen;
+}
 
 @media (max-width: 2000px) {
   body {
