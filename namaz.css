@@ -113,7 +113,7 @@ body{
     width: 30%;
 }
 .namaz .correcttime{
-    
+    color:#fcff9e;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
