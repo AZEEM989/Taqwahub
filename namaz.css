@@ -1,308 +1,310 @@
-*{
-    padding: 0;
-    margin: 0;
+* {
+  padding: 0;
+  margin: 0;
 }
-body{
-    display: flex;
-    background: linear-gradient(90deg, #fcff9e 0%, #c67700 100%);
-    justify-content: space-evenly;
-    align-items: center;
-    
+body {
+  display: flex;
+  background: linear-gradient(90deg, #fcff9e 0%, #c67700 100%);
+  justify-content: space-evenly;
+  align-items: center;
 }
-.title{
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    font-weight: 500;
-    font-family:'Courier New', Courier, monospace;
-    color:darkolivegreen;
-    text-decoration: overline;
+.title {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-weight: 500;
+  font-family: "Courier New", Courier, monospace;
+  color: darkolivegreen;
+  text-decoration: overline;
 }
 
+.title img {
+  width: 3rem;
+  height: 3.5rem;
+}
 
-.title img{
-    width: 3rem;
-    height: 3.5rem;
+.name {
+  font-size: 10vw;
 }
-.name{
+.bismillah {
+  font-size: 5vw;
+}
+.main {
+  margin-top: 2vh;
+  display: flex;
+  padding: 3vh 0 1vh 0;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 25rem;
+  height: auto;
+  border-radius: 10px;
+  background-color: rgb(65, 65, 65);
+}
+.counter {
+  font-size: 8rem;
+  color: #fcff9e;
+}
+.mainhead {
+  display: flex;
+  justify-content: space-around;
+}
+.mainhead img {
+  width: 5vw;
+  height: 5vw;
+}
+.main h1 {
+  color: white;
+}
+.tasbeeh {
+  font-size: 2rem;
+  color: white;
+  padding-bottom: 2rem;
+}
+.count {
+  width: 8rem;
+  height: 7rem;
+  cursor: pointer;
+}
+.reset {
+  width: 8rem;
+  height: 7rem;
+  cursor: pointer;
+}
+.note1 h4 {
+  margin: 1rem 0;
+  line-height: 1rem;
+  color: white;
+  font-size: 0.5rem;
+  font-weight: 200;
+  text-align: center;
+  font-family: "Inknut Antiqua", serif;
+  border-top: 1px solid white;
+}
+.namaz {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  font-family: "Inknut Antiqua", serif;
+  text-align: center;
+  width: auto;
+  height: auto;
+  border-radius: 10px;
+  background-color: rgb(65, 65, 65);
+}
+.namztime {
+  padding: 3vh 0;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  font-size: 3vw;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  color: white;
+}
+.namaz .eng {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 30%;
+}
+.namaz .correcttime {
+  color: #fcff9e;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 40%;
+}
+.namaz .arname {
+  width: 30%;
+}
+
+body .namaz h1 {
+  font-size: 10vw;
+  color: white;
+}
+
+.namazhead {
+  display: flex;
+  justify-content: space-around;
+}
+.namazhead img {
+  width: 5vw;
+  height: 10vw;
+}
+.note2 h4 {
+  margin: 1rem 0;
+  line-height: 1rem;
+  color: white;
+  font-size: 0.5rem;
+  font-weight: 200;
+  text-align: center;
+}
+.audio {
+  margin-bottom: 3rem;
+  padding: 0rem 0 3rem 0;
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  font-family: "Inknut Antiqua", serif;
+  text-align: center;
+  width: 25rem;
+  height: auto;
+  border-radius: 10px;
+  background-color: rgb(65, 65, 65);
+}
+.audio h1 {
+  font-size: 10vw;
+  color: white;
+}
+#surahSelect {
+  width: 10rem;
+  height: 3rem;
+  border: none;
+  border-radius: 50px;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: inset 3px 3px 10px gray, inset -3px -3px 10px gray;
+}
+#submitButton {
+  box-shadow: 2px 2px 20px black;
+  width: 6rem;
+  height: 3rem;
+  border: none;
+  border-radius: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: 1s;
+}
+#submitButton:hover {
+  color: darkseagreen;
+  background-color: darkslategray;
+  transform: scale(1.2);
+}
+#surahAudio {
     
-    font-size: 10vw;
+  width: 90%;
+  height: 50px;
 }
-.bismillah{
-    font-size: 5vw;
+.link a {
+  text-decoration: none;
+  color: white;
+  font-size: 1rem;
 }
-.main{
-    margin-top: 2vh;
-    display: flex;
-    padding: 3vh 0 1vh 0;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    width: 25rem;
-    height: auto;
-    border-radius: 10px;
-    background-color: rgb(65, 65, 65);
-    
+.friday {
+  padding: 0rem 0 1rem 0;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  font-family: "Inknut Antiqua", serif;
+  width: 25rem;
+  height: auto;
+  border-radius: 10px;
+  background-color: rgb(65, 65, 65);
+  color: white;
 }
-.counter{
-    font-size: 8rem;
-    color:#fcff9e;
+.friday h1 {
+  font-size: 10vw;
 }
-.mainhead{
-    display: flex;
-    justify-content: space-around;
+.frihead {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
 }
-.mainhead img{
-    width: 5vw;
-    height: 5vw;
+.frihead img {
+  width: 5vw;
+  height: 10vw;
 }
-.main h1{
+.friday .best {
+  font-size: 1rem;
+  padding: 2rem 0;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+}
+
+.best .frtime {
+  color: #fcff9e;
+}
+
+.best .location i {
+  color: white;
+  font-size: 1.5rem;
+}
+.audiohead {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  border-bottom: 1px solid white;
+}
+.audiohead img {
+  width: 5vw;
+  height: 10vw;
+}
+.lk{
+    width: 100%;
     color: white;
-}
-.tasbeeh{
- font-size: 2rem;
- color: white;
- padding-bottom: 2rem;
-}
-.count{
-    width: 8rem;
-    height: 7rem;
-    cursor: pointer;
-}
-.reset{
-    width: 8rem;
-    height: 7rem;
-    cursor: pointer;
-}
-.note1 h4{
-    
-    margin:1rem 0;
-    line-height: 1rem;
-    color: white;
-    font-size: 0.5rem;
-    font-weight: 200;
-    text-align: center;
-    font-family: "Inknut Antiqua", serif;
-    border-top: 1px solid white;
-}
-.namaz{
-    margin-top: 2rem;
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    font-family: "Inknut Antiqua", serif;
-   text-align: center;
-    width: auto;
-    height: auto;
-    border-radius: 10px;
-    background-color: rgb(65, 65, 65); 
-}
-.namztime{
-    padding: 3vh 0;
-    border-top: 1px solid white;
-    border-bottom: 1px solid white;
     font-size: 3vw;
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    color: white;
+    padding: 0 1rem;
 }
-.namaz .eng{
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 30%;
-}
-.namaz .correcttime{
-    color:#fcff9e;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 40%;
-}
-.namaz .arname{
-    width: 30%;
-}
-
-body .namaz h1{
-    font-size: 10vw;
-    color: white;
-}
-
-
-.namazhead{
-    display: flex;
-    justify-content: space-around;
-}
-.namazhead img{
-    width: 5vw;
-    height: 10vw;
-}
-.note2 h4{
-    margin:1rem 0;
-    line-height: 1rem;
-    color: white;
-    font-size: 0.5rem;
-    font-weight: 200;
-    text-align: center;
-}
-.audio{
-    margin-bottom: 3rem;
-    padding: 0rem 0 1rem 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    font-family: "Inknut Antiqua", serif;
-   text-align: center;
-    width: 25rem;
-    height: auto;
-    border-radius: 10px;
-    background-color: rgb(65, 65, 65); 
-}
-.audio h1{
-    font-size: 10vw;
-    color: white;
-}
-#surahSelect{
-    width: 10rem;
-    height: 3rem;
-    border: none;
-    border-radius: 50px;
-    text-align: center;
-    cursor: pointer;
-    box-shadow: inset 3px 3px 10px gray, 
-    inset -3px -3px 10px gray;
-}
-#submitButton{
-    box-shadow: 2px 2px 20px black;
-    width: 6rem;
-    height: 3rem;
-    border: none;
-    border-radius: 20px;
-    text-align: center;
-    cursor: pointer;
-    transition: 1s;
-}
-#submitButton:hover{
-    color: darkseagreen;
-    background-color: darkslategray;
-    transform: scale(1.2);
-}
-.link a{
-    text-decoration: none;
-    color: white;
-    font-size:1rem;
-}
-.friday{
-    padding: 0rem 0 1rem 0;
-    margin-bottom: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    font-family: "Inknut Antiqua", serif;
-    width: 25rem;
-    height: auto;
-    border-radius: 10px;
-    background-color: rgb(65, 65, 65); 
-    color: white;
-}
-.friday h1{
-    font-size: 10vw;
-}
-.frihead{
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: flex-start;
-}
-.frihead img{
-    width: 5vw;
-    height: 10vw;
-}
-.friday .best{
-    font-size: 1rem;
-    padding: 2rem 0;
-    display: flex;
-    justify-content: space-evenly;
-    width: 100%;
-    border-top: 1px solid white;
-    border-bottom: 1px solid white;
-    }
-.best .frname div:hover{
-  transform: scale(1.5);
-}
-.best .frtime{
+.link a {
     color: #fcff9e;
 }
 
-.best .location  i {
-        color: white;
-        font-size: 1.5rem;
-}
-.audiohead{
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: flex-start;
-}
-.audiohead img{
-    width: 5vw;
-    height: 10vw;
-}
-
-
-@media(max-width:2000px){
-    body{
+@media (max-width: 2000px) {
+  body {
     flex-direction: column;
     padding: 2rem;
-    }
-    .main{
-       width: 94vw; 
-    }
-    
-    .namaz{
-        width: 94vw;
-        height: auto;
-        margin-bottom: 3rem;
-    }
-    .friday{
-        
-        width: 94vw;
-        height: auto;
-        margin-bottom: 3rem;
-        
-    }
-    .audio{
-        width: 94vw;
-        margin-bottom: 5rem;
-    }
-    .namazhead{
-        display: flex;
-        justify-content: space-evenly;
-        gap: 2rem;
-    }
-    .namazhead img{
-        width: 10vw;
-        height: 20vw;
-    }
-    .mainhead img{
-        width: 15vw;
-        height: 15vw;
-    }
-    .frihead img{
-        width: 10vw;
-        height: 20vw;
-    }
-    .audiohead img{
-        width: 10vw;
-        height: 20vw;
-    }
-}
+  }
+  .main {
+    width: 94vw;
+  }
 
+  .namaz {
+    width: 94vw;
+    height: auto;
+    margin-bottom: 3rem;
+  }
+  .friday {
+    width: 94vw;
+    height: auto;
+    margin-bottom: 3rem;
+  }
+  .audio {
+    width: 94vw;
+    margin-bottom: 5rem;
+  }
+  .namazhead {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 2rem;
+  }
+  .namazhead img {
+    width: 10vw;
+    height: 20vw;
+  }
+  .mainhead img {
+    width: 15vw;
+    height: 15vw;
+  }
+  .frihead img {
+    width: 10vw;
+    height: 20vw;
+  }
+  .audiohead img {
+    width: 10vw;
+    height: 20vw;
+  }
+}
