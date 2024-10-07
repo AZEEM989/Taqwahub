@@ -140,10 +140,10 @@ body .namaz h1{
     height: 10vw;
 }
 .note2 h4{
-    margin-top: 3rem;
+    margin:1rem 0;
     line-height: 1rem;
     color: white;
-    font-size: 0.6rem;
+    font-size: 0.5rem;
     font-weight: 200;
     text-align: center;
 }
