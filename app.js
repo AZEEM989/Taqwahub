@@ -72,20 +72,20 @@ const getTiming = async () => {
 
         let data = await response.json();
         console.log(data);
-        fajrT.innerText=`${data.data.timings.Fajr}   ----------------   فجر`; 
-        zoharT.innerText=`${data.data.timings.Dhuhr} ----------------  ظہر`;
-        asrT.innerText=`${data.data.timings.Asr} ---------------  عصر`;
-        maghribT.innerText=`${data.data.timings.Maghrib} ---------------  مغرب`;
-        ishaT.innerText=`${data.data.timings.Isha} ----------------   عشا`;
-        engDate.innerText=`${data.data.date.gregorian.date}  ---  انگریزی تاریخ`;
-        urduDate.innerText=`${data.data.date.hijri.day} -------------- چاند کی تاریخ`;
-        islamMonth.innerText=`(${data.data.date.hijri.month.number}) اسلامی مہینہ ------- ${data.data.date.hijri.month.ar} `;
-        sunRise.innerText=`${data.data.timings.Sunrise} ----------- طلوع آفتاب`;
-        sunSet.innerText=`${data.data.timings.Maghrib} ----------- غروب آفتاب`;
-        engMonth.innerText=`(${data.data.date.gregorian.month.number})${data.data.date.gregorian.month.en} - انگریزی مہینہ`;
-        dAy.innerText=`${data.data.date.gregorian.weekday.en} --------------- دن`;
-        sehriTime.innerText=`${data.data.timings.Imsak} ---------- سحری کا وقت`;
-        hijriYear.innerText=`${data.data.date.hijri.year} ---------------- ہجری`;
+        fajrT.innerText=`${data.data.timings.Fajr}`; 
+        zoharT.innerText=`${data.data.timings.Dhuhr}`;
+        asrT.innerText=`${data.data.timings.Asr}`;
+        maghribT.innerText=`${data.data.timings.Maghrib}`;
+        ishaT.innerText=`${data.data.timings.Isha}`;
+        engDate.innerText=`${data.data.date.gregorian.date}`;
+        urduDate.innerText=`${data.data.date.hijri.day} `;
+        islamMonth.innerText=`(${data.data.date.hijri.month.number})${data.data.date.hijri.month.ar} `;
+        sunRise.innerText=`${data.data.timings.Sunrise}`;
+        sunSet.innerText=`${data.data.timings.Maghrib}`;
+        engMonth.innerText=`(${data.data.date.gregorian.month.number})${data.data.date.gregorian.month.en}`;
+        dAy.innerText=`${data.data.date.gregorian.weekday.en}`;
+        sehriTime.innerText=`${data.data.timings.Imsak}`;
+        hijriYear.innerText=`${data.data.date.hijri.year}`;
         // Log the fetched data to the console
     } catch (error) {
         console.error("Error fetching data:", error);
