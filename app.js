@@ -72,9 +72,10 @@ const getTiming = async () => {
 
         let data = await response.json();
         console.log(data);
+        
         fajrT.innerText=`${data.data.timings.Fajr}`; 
         zoharT.innerText=`${data.data.timings.Dhuhr}`;
-        asrT.innerText=`${data.data.timings.Asr}`;
+        asrT.innerText=(data.data.timings.Asr);
         maghribT.innerText=`${data.data.timings.Maghrib}`;
         ishaT.innerText=`${data.data.timings.Isha}`;
         engDate.innerText=`${data.data.date.gregorian.date}`;
