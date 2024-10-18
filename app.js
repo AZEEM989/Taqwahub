@@ -72,6 +72,23 @@ const getTiming = async () => {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
         function convertTo12Hour(time) {
+            let [hours, minutes] = time.split(':');
+            let period = 'A.M';
+          
+            // Convert hours to 12-hour format
+            hours = parseInt(hours);
+            if (hours >= 12) {
+              period = 'P.M';
+              if (hours > 12) {
+                hours -= 12;
+              }
+            } else if (hours === 0) {
+              hours = 12;
+            }
+          
+            return `${hours}:${minutes}`;
+          }
+           function convertTo12Hour1(time) {
             let [hours, minutes,seconds] = time.split(':');
             let period = 'A.M';
           
@@ -92,7 +109,7 @@ const getTiming = async () => {
         let data = await response.json();
         console.log(data);
         function timeUpdate(){const cuTime=new Date().toLocaleTimeString();
-          currentTime.innerText=convertTo12Hour(cuTime);
+          currentTime.innerText=convertTo12Hour1(cuTime);
         }
         setInterval(timeUpdate,1000);
         timeUpdate();
