@@ -62,6 +62,7 @@ const getCurrentDate = () => {
 const getTiming = async () => {
     const currentDate = getCurrentDate();
     const URL = `https://api.aladhan.com/v1/timingsByCity/${currentDate}?city=Badaun&country=IN&method=22`;
+    
     try {
         let response = await fetch(URL);
         
@@ -69,23 +70,40 @@ const getTiming = async () => {
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
+        function convertTo12Hour(time) {
+            let [hours, minutes] = time.split(':');
+            let period = 'A.M';
+          
+            // Convert hours to 12-hour format
+            hours = parseInt(hours);
+            if (hours >= 12) {
+              period = 'P.M';
+              if (hours > 12) {
+                hours -= 12;
+              }
+            } else if (hours === 0) {
+              hours = 12;
+            }
+          
+            return `${hours}:${minutes} `;
+          }
 
         let data = await response.json();
         console.log(data);
         
-        fajrT.innerText=`${data.data.timings.Fajr}`; 
-        zoharT.innerText=`${data.data.timings.Dhuhr}`;
-        asrT.innerText=(data.data.timings.Asr);
-        maghribT.innerText=`${data.data.timings.Maghrib}`;
-        ishaT.innerText=`${data.data.timings.Isha}`;
+        fajrT.innerText=convertTo12Hour(data.data.timings.Fajr); 
+        zoharT.innerText=convertTo12Hour(data.data.timings.Dhuhr);
+        asrT.innerText=convertTo12Hour(data.data.timings.Asr);
+        maghribT.innerText=convertTo12Hour(data.data.timings.Maghrib);
+        ishaT.innerText=convertTo12Hour(data.data.timings.Isha);
         engDate.innerText=`${data.data.date.gregorian.date}`;
         urduDate.innerText=`${data.data.date.hijri.day} `;
         islamMonth.innerText=`(${data.data.date.hijri.month.number})${data.data.date.hijri.month.ar} `;
-        sunRise.innerText=`${data.data.timings.Sunrise}`;
-        sunSet.innerText=`${data.data.timings.Maghrib}`;
+        sunRise.innerText=convertTo12Hour(data.data.timings.Sunrise);
+        sunSet.innerText=convertTo12Hour(data.data.timings.Maghrib);
         engMonth.innerText=`(${data.data.date.gregorian.month.number})${data.data.date.gregorian.month.en}`;
         dAy.innerText=`${data.data.date.gregorian.weekday.en}`;
-        sehriTime.innerText=`${data.data.timings.Imsak}`;
+        sehriTime.innerText=convertTo12Hour(data.data.timings.Imsak);
         hijriYear.innerText=`${data.data.date.hijri.year}`;
         // Log the fetched data to the console
     } catch (error) {

@@ -188,7 +188,6 @@ body .namaz h1 {
   transform: scale(1.2);
 }
 #surahAudio {
-    
   width: 90%;
   height: 50px;
 }
@@ -253,17 +252,17 @@ body .namaz h1 {
   width: 5vw;
   height: 10vw;
 }
-.lk{
-    width: 100%;
-    color: white;
-    font-size: 3vw;
-    padding: 0 1rem;
+.lk {
+  width: 100%;
+  color: white;
+  font-size: 3vw;
+  padding: 0 1rem;
 }
 .link a {
-    color: #fcff9e;
+  color: #fcff9e;
 }
-.footer span{
-    color:darkgreen;
+.footer span {
+  color: darkgreen;
 }
 
 @media (max-width: 2000px) {
