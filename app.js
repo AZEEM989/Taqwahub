@@ -17,6 +17,7 @@ let engMonth=document.querySelector(".engmonth");
 let dAy=document.querySelector(".day");
 let sehriTime=document.querySelector(".sehri");
 let hijriYear=document.querySelector(".hijriyear");
+let currentTime=document.querySelector(".time")
 
 
 let num = 0;
@@ -90,6 +91,11 @@ const getTiming = async () => {
 
         let data = await response.json();
         console.log(data);
+        function timeUpdate(){const cuTime=new Date().toLocaleTimeString();
+          currentTime.innerText=cuTime;
+        }
+        setInterval(timeUpdate,1000);
+        timeUpdate();
         
         fajrT.innerText=convertTo12Hour(data.data.timings.Fajr); 
         zoharT.innerText=convertTo12Hour(data.data.timings.Dhuhr);
