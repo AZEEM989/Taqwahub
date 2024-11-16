@@ -120,7 +120,7 @@ const getTiming = async () => {
         maghribT.innerText=convertTo12Hour(data.data.timings.Maghrib);
         ishaT.innerText=convertTo12Hour(data.data.timings.Isha);
         engDate.innerText=`${data.data.date.gregorian.date}`;
-        urduDate.innerText=`${data.data.date.hijri.day} `;
+        urduDate.innerText= data.data.date.hijri.day-1 ;
         islamMonth.innerText=`(${data.data.date.hijri.month.number})${data.data.date.hijri.month.ar} `;
         sunRise.innerText=convertTo12Hour(data.data.timings.Sunrise);
         sunSet.innerText=convertTo12Hour(data.data.timings.Maghrib);
