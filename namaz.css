@@ -4,8 +4,11 @@
 }
 body {
   display: flex;
-  background: linear-gradient(90deg, #fcff9e 0%, #c67700 100%);
+  background:url(images/newbackground.png);
   justify-content: space-evenly;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   align-items: center;
 }
 .title {
@@ -14,7 +17,7 @@ body {
   align-items: center;
   font-weight: 500;
   font-family: "Courier New", Courier, monospace;
-  color: darkolivegreen;
+  color: rgb(247, 247, 247);
   text-decoration: overline;
 }
 
@@ -39,7 +42,7 @@ body {
   width: 25rem;
   height: auto;
   border-radius: 10px;
-  background-color: rgb(65, 65, 65);
+  background-color: #37684462;
 }
 .counter {
   font-size: 8rem;
@@ -92,7 +95,7 @@ body {
   width: auto;
   height: auto;
   border-radius: 10px;
-  background-color: rgb(65, 65, 65);
+  background-color: #37684462;
 }
 .namztime {
   padding: 3vh 0;
@@ -157,7 +160,7 @@ body .namaz h1 {
   width: 25rem;
   height: auto;
   border-radius: 10px;
-  background-color: rgb(65, 65, 65);
+  background-color:#37684462 ;
 }
 .audio h1 {
   font-size: 10vw;
@@ -177,7 +180,7 @@ body .namaz h1 {
   width: 6rem;
   height: 3rem;
   border: none;
-  border-radius: 20px;
+  border-radius: 10px;
   text-align: center;
   cursor: pointer;
   transition: 1s;
@@ -207,7 +210,7 @@ body .namaz h1 {
   width: 25rem;
   height: auto;
   border-radius: 10px;
-  background-color: rgb(65, 65, 65);
+  background-color: #37684462;
   color: white;
 }
 .friday h1 {
@@ -255,11 +258,11 @@ body .namaz h1 {
 .upcoming{
  margin-bottom: 3rem;
   padding: 0rem 0 3rem 0;
-  display: flex;
+  /* display: flex; */
   gap: 1rem;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+  /* flex-direction: column; */
+  /* justify-content: space-between; */
+  /* align-items: center; */
   font-family: "Inknut Antiqua", serif;
   text-align: center;
   width: 25rem;
@@ -277,8 +280,13 @@ body .namaz h1 {
   color: white;
 }
 .upcomingdate{
+  /* background-image: url(images/newbackground.png); */
   display: flex;
   width: 100%;
+  height:91%;
+  border-radius: 0 0 30px 30px;
+  background-size: cover;
+  background-position: center;
   justify-content: center;
   align-items: center;
 }
@@ -292,6 +300,7 @@ body .namaz h1 {
   border: 1px solid #e5e3d4;
   border-radius: 20px;
   font-size: 0.2rem;
+  background-color: white;
 }
 
 .holidayimg img{
@@ -337,6 +346,9 @@ body .namaz h1 {
 }
 .link a {
   color: #fcff9e;
+}
+.footer{
+  color: white;
 }
 .footer span {
   color: darkgreen;
@@ -412,3 +424,48 @@ body .namaz h1 {
   }
 }
 
+.count{
+  min-width: 130px;
+  height: 120px;
+  color: #fff;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+  box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5), 7px 7px 20px 0px rgba(0,0,0,.1), 4px 4px 5px 0px rgba(0,0,0,.1);
+  background: #495057;
+}
+.count:hover {
+  background-color: #6c757d;
+}
+.count:active {
+  top: 2px;
+}
+
+.reset{
+  min-width: 130px;
+  height: 120px;
+  color: #fff;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+  background-color:#6c757d ;
+  box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5), 7px 7px 20px 0px rgba(0,0,0,.1), 4px 4px 5px 0px rgba(0,0,0,.1);
+}
+.reset:hover {
+  background-color: #6c757d;
+}
+.reset:active {
+  top: 2px;
+}
