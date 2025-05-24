@@ -259,7 +259,7 @@ body .namaz h1 {
   padding: 0 1rem;
 }
 .link a {
-  color: rgb(252, 255, 158);
+  color: #fcff9e;
 }
 .footer span {
   color: darkgreen;
@@ -311,6 +311,22 @@ body .namaz h1 {
   .audiohead img {
     width: 10vw;
     height: 20vw;
+  }
+  .urdudate{
+    background-image: url(images/3d-calendar-date-day-schedule-event-icon-illustration-png.webp);
+    width: 50px;
+    height:6vh;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: contain;
+    background-position: center;
+   
+    position: relative;
+    background-repeat: no-repeat;
+    
+    color: black;
   }
   
 }
