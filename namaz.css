@@ -33,7 +33,7 @@ body {
 .main {
   margin-top: 2vh;
   display: flex;
-  padding: 3vh 0 1vh 0;
+  /* padding: 3vh 0 1vh 0; */
   flex-direction: column;
   justify-content: space-around;
   color: #c67700;
@@ -51,14 +51,14 @@ body {
 .mainhead {
   width: 100%;
   height: 15vh;
-  margin-top: -20px;
+  
   /* overflow: hidden; */
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   border-radius: 30px 30px 0 0;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: #d39726;
+  background-color:#c67700;
 }
 .mainhead img {
   filter: drop-shadow(0 0 10px white);
@@ -91,8 +91,7 @@ body {
   border-radius: 20px;
 }
 .count:hover{
-  width: 7rem;
-  height: 6rem;
+  box-shadow: 0 0 10px black;
 }
 .reset {
   width: 8rem;
@@ -106,8 +105,7 @@ body {
   border-radius: 20px;
 }
 .reset:hover{
-  width: 7rem;
-  height: 6rem;
+ box-shadow: 0 0 10px black
 }
 .note1 h4 {
   margin: 1rem 0;
@@ -399,9 +397,9 @@ body .namaz h1 {
   height: 40%;
   background-color: #F1EAD8;
   border-radius: 10px;
-  line-height: 1rem;
+  /* line-height: 1rem; */
   align-content: center;
-  font-size: 0.6rem;
+  font-size:2vw;
 }
 .lk {
   width: 100%;
