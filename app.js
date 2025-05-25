@@ -21,6 +21,7 @@ let currentTime=document.querySelector(".time");
 let holiDay=document.querySelector(".holidayname");
 let holiDate=document.querySelector(".holidaydate");
 let holidayLeft=document.querySelector(".holidaycodown");
+let aboutHoliday=document.querySelector(".aboutholiday");
 
 
 let num = 0;
@@ -168,45 +169,60 @@ getTiming();
   // Set the initial audio to Surah 1 (optional)
   surahSelect.value = 1;
 
-const getHoliday = async () => {
-    // const currentDate = getCurrentDate();
-    const URL = `https://calendarific.com/api/v2/holidays?api_key=ja5zhqTPZOpSQUOKgzc8PVMGmY7kuAn2&country=IN&year=2025`;
-    
-    try {
-        let response = await fetch(URL);
-        
-        // Check if the response is OK (status code 200–299)
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-         let data = await response.json();
-         console.log(data);
-          holiDay.innerText = data.response.holidays[39].name;
-          holiDate.innerText = data.response.holidays[39].date.iso.split('-').reverse().join('-');
+const getDate = async () => {
+  const URL = `https://calendarific.com/api/v2/holidays?api_key=ja5zhqTPZOpSQUOKgzc8PVMGmY7kuAn2&country=IN&year=2025`;
 
-          // calculate days difference
-          const holidayDateStr = data.response.holidays[39].date.iso; // e.g., "2025-03-14"
-const today = new Date();
-const holidayDate = new Date(holidayDateStr);
+  try {
+    let response = await fetch(URL);
 
-// Get the time difference in milliseconds
-const timeDiff = holidayDate.getTime() - today.getTime();
-
-// Convert milliseconds to days
-const daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
-
-// Display the result
-holidayLeft.innerText = 
-  daysLeft >= 0 
-    ? `${daysLeft} days left `:
-    
-
-        
-        console.log(data);
-    }catch (error) {
-        console.error("Error fetching data:", error);
+    // Check if the response is OK (status code 200–299)
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
     }
+    let data = await response.json();
+    let holidays = data.response.holidays;
+    console.log(data.response.holidays[39]);
+
+    function getNextHoliday() {
+      const today = new Date();
+      for (let i = 0; i < holidays.length; i++) {
+        const holidayDate = new Date(holidays[i].date.iso);
+        if (holidayDate >= today) {
+          return holidays[i];
+        }
+      }
+      return null; // All holidays are over
+    }
+
+    function updateHolidayInfo() {
+      const nextHoliday = getNextHoliday();
+
+      if (!nextHoliday) {
+        holiDay.innerText =
+          "No upcoming holidays.";
+        holidayLeft.innerText = "";
+        return;
+      }
+
+      const today = new Date();
+      const holidayDate = new Date(nextHoliday.date.iso);
+      const timeDiff = holidayDate - today;
+      const daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+
+      holiDay.innerText = nextHoliday.name;
+      holiDate.innerText=nextHoliday.date.iso.split('-').reverse().join('-');
+      holidayLeft.innerText = `In ${daysLeft} days`;
+      aboutHoliday.innerText = nextHoliday.description || "No description available.";
+    }
+
+    // Update every day at midnight
+    updateHolidayInfo();
+    setInterval(updateHolidayInfo, 1000 * 60 * 60 * 24); // Update every 24 hours
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
 };
-getHoliday();
+// Call the function to fetch and log data
+getDate();
 
 
