@@ -28,6 +28,9 @@ let num = 0;
 let some=0;
 countBt.addEventListener("click", () => {
   num++;
+  const correctSound = new Audio('mixkit-modern-technology-select-3124.wav');
+correctSound.play();
+
   counter.innerText = num;
 //   tasBeeh.innerText="tasbeeh.........."
   
@@ -42,6 +45,8 @@ countBt.addEventListener("click", () => {
 resetBt.addEventListener("click",()=>{
     num=0;
     some=0;
+    const correctSound = new Audio('mixkit-quick-win-video-game-notification-269.wav');
+correctSound.play();
     counter.innerText=num;
     tasBeeh.innerText="tasbeeh reset";
     setTimeout(()=>{
@@ -181,7 +186,7 @@ const getDate = async () => {
     }
     let data = await response.json();
     let holidays = data.response.holidays;
-    console.log(data.response.holidays[39]);
+    console.log(data.response);
 
     function getNextHoliday() {
       const today = new Date();
