@@ -28,7 +28,7 @@ let num = 0;
 let some=0;
 countBt.addEventListener("click", () => {
   num++;
-  const correctSound = new Audio('mixkit-modern-technology-select-3124.wav');
+  const correctSound = new Audio('mixkit-on-or-off-light-switch-tap-2585.wav');
 correctSound.play();
 
   counter.innerText = num;
@@ -51,7 +51,7 @@ correctSound.play();
     tasBeeh.innerText="tasbeeh reset";
     setTimeout(()=>{
         tasBeeh.innerText="tasbeeh............"
-    },2000)
+    },1000)
 })
 
 const getCurrentDate = () => {
