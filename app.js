@@ -72,7 +72,7 @@ const getCurrentDate = () => {
 const getTiming = async () => {
     const currentDate = getCurrentDate();
     const URL = `https://api.aladhan.com/v1/timingsByCity/${currentDate}?city=Badaun&country=IN&method=22`;
-    
+    console.log('Current Date:', currentDate);
     try {
         let response = await fetch(URL);
         
