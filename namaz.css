@@ -385,6 +385,9 @@ body .namaz h1 {
 .holidayname {
   color: #06543c;
   font-weight: 800;
+  /* background-color: aquamarine; */
+  height: 40%;
+  line-height:0.15in;
   font-size: auto;
 }
 .holidaydate {
