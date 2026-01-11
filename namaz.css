@@ -435,8 +435,22 @@ body .namaz h1 {
   color: #053426;
   text-decoration: underline;
 }
+.footer{
+  text-align: center;
+  font-size: 0.8rem;
+  font-style: italic ;
+  width: 22rem;
+  padding: 2rem;
+  height: auto;
+  border-radius: 30px;
+  box-shadow: 0px 0px 10px black;
+  background-color: rgb(255, 255, 255);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 .footer span {
   color: darkgreen;
+  font-weight: 800;
+  font-style: normal;
 }
 
 @media (max-width: 1080px) {
