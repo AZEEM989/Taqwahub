@@ -175,7 +175,7 @@ getTiming();
   surahSelect.value = 1;
 
 const getDate = async () => {
-  const URL = `https://calendarific.com/api/v2/holidays?api_key=ja5zhqTPZOpSQUOKgzc8PVMGmY7kuAn2&country=IN&year=2025`;
+  const URL = `https://calendarific.com/api/v2/holidays?api_key=ja5zhqTPZOpSQUOKgzc8PVMGmY7kuAn2&country=IN&year=2026`;
 
   try {
     let response = await fetch(URL);
