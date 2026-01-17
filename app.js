@@ -41,6 +41,17 @@ correctSound.play();
         num = 0;
   }
 });
+document.querySelector('#menuaudio').addEventListener('click', () => {
+  document.querySelector('.audio').scrollIntoView({
+    behavior: 'smooth'
+  });
+});
+document.querySelector('#menufriday').addEventListener('click', () => {
+  document.querySelector('.friday').scrollIntoView({
+    behavior: 'smooth'
+  });
+});
+
 
 resetBt.addEventListener("click",()=>{
     num=0;

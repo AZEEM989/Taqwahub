@@ -27,6 +27,53 @@ body {
 .name {
   font-size: 10vw;
 }
+.bottom-menu {
+  position: fixed;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 90%;
+  max-width: 380px;
+  height: 70px;
+
+  background: linear-gradient(
+    135deg,
+    #0b3d2e,
+    #0f5c42
+  );
+
+  border-radius: 25px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  box-shadow:
+    0 0 15px rgba(0, 0, 0, 0.4),
+    inset 0 0 8px rgba(255, 255, 255, 0.1);
+
+  z-index: 1000;
+}
+.menu-item {
+  text-decoration: none;
+  color: #d4af37; /* gold */
+  font-size: 0.75rem;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.menu-item span {
+  display: block;
+  font-size: 1.4rem;
+}
+
+.menu-item p {
+  margin: 0;
+}
+body {
+  padding-bottom: 100px;
+}
+
 .bismillah {
   font-size: 5vw;
   color: #053426;
@@ -436,6 +483,7 @@ body .namaz h1 {
   text-decoration: underline;
 }
 .footer{
+  position: relative;
   text-align: center;
   font-size: 0.8rem;
   font-style: italic ;
@@ -444,14 +492,17 @@ body .namaz h1 {
   height: auto;
   border-radius: 30px;
   box-shadow: 0px 0px 10px black;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(133, 219, 106);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  z-index: 1;
 }
+
 .footer span {
   color: darkgreen;
   font-weight: 800;
   font-style: normal;
 }
+
 
 @media (max-width: 1080px) {
   body {
