@@ -1,5 +1,7 @@
 let main = document.querySelector(".main");
 let counter = document.querySelector(".counter");
+let counterText = document.querySelector(".counter-text");
+let progressCircle = document.querySelector(".progress-ring__circle");
 let tasBeeh = document.querySelector(".tasbeeh");
 let countBt = document.querySelector(".count");
 let resetBt = document.querySelector(".reset");
@@ -26,12 +28,28 @@ let aboutHoliday=document.querySelector(".aboutholiday");
 
 let num = 0;
 let some=0;
+const radius = progressCircle.r.baseVal.value;
+const circumference = 2 * Math.PI * radius;
+progressCircle.style.strokeDasharray = `${circumference} ${circumference}`;
+progressCircle.style.strokeDashoffset = circumference;
+
+const setProgress = (value) => {
+  const progress = Math.min(100, Math.max(0, value));
+  const offset = circumference - (progress / 100) * circumference;
+  progressCircle.style.strokeDashoffset = offset;
+};
+
+const updateCounter = () => {
+  counterText.innerText = num;
+  setProgress((num / 100) * 100);
+};
+
 countBt.addEventListener("click", () => {
   num++;
   const correctSound = new Audio('mixkit-on-or-off-light-switch-tap-2585.wav');
-correctSound.play();
+  correctSound.play();
 
-  counter.innerText = num;
+  updateCounter();
 //   tasBeeh.innerText="tasbeeh.........."
   
   if (num === 100) {
@@ -57,8 +75,8 @@ resetBt.addEventListener("click",()=>{
     num=0;
     some=0;
     const correctSound = new Audio('mixkit-quick-win-video-game-notification-269.wav');
-correctSound.play();
-    counter.innerText=num;
+    correctSound.play();
+    updateCounter();
     tasBeeh.innerText="tasbeeh reset";
     setTimeout(()=>{
         tasBeeh.innerText="tasbeeh............"
