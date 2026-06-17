@@ -25,6 +25,17 @@ let holiDate=document.querySelector(".holidaydate");
 let holidayLeft=document.querySelector(".holidaycodown");
 let aboutHoliday=document.querySelector(".aboutholiday");
 
+// Prayer card elements for active highlighting
+let fajrCard = document.querySelector('.fajr-card');
+let dhuhrCard = document.querySelector('.dhuhr-card');
+let asrCard = document.querySelector('.asr-card');
+let maghribCard = document.querySelector('.maghrib-card');
+let ishaCard = document.querySelector('.isha-card');
+let sunriseCard = document.querySelector('.sunrise-card');
+
+// Will hold Date objects for today's prayer times
+let prayerTimes = {};
+
 
 let num = 0;
 let some=0;
@@ -167,6 +178,25 @@ const getTiming = async () => {
         sehriTime.innerText=convertTo12Hour(data.data.timings.Imsak);
         hijriYear.innerText=`${data.data.date.hijri.year}`;
         // Log the fetched data to the console
+        // Parse timings into Date objects for highlighting logic
+        const todayDate = new Date();
+        const Y = todayDate.getFullYear();
+        const M = todayDate.getMonth();
+        const D = todayDate.getDate();
+        const toDateObj = (timeStr) => {
+          const timePart = timeStr.split(' ')[0];
+          const [hh, mm] = timePart.split(':');
+          return new Date(Y, M, D, parseInt(hh, 10), parseInt(mm, 10), 0);
+        };
+        prayerTimes = {
+          fajr: toDateObj(data.data.timings.Fajr),
+          sunrise: toDateObj(data.data.timings.Sunrise),
+          dhuhr: toDateObj(data.data.timings.Dhuhr),
+          asr: toDateObj(data.data.timings.Asr),
+          maghrib: toDateObj(data.data.timings.Maghrib),
+          isha: toDateObj(data.data.timings.Isha)
+        };
+        if (typeof updateActivePrayer === 'function') updateActivePrayer();
     } catch (error) {
         console.error("Error fetching data:", error);
     }
@@ -174,6 +204,59 @@ const getTiming = async () => {
 
 // Call the function to fetch and log data
 getTiming();
+
+// Update and highlight the current prayer based on parsed `prayerTimes`.
+function updateActivePrayer() {
+  if (!prayerTimes || !prayerTimes.fajr) return;
+  const now = new Date();
+
+  let current = 'isha';
+  if (now >= prayerTimes.fajr && now < prayerTimes.sunrise) {
+    current = 'fajr';
+  } else if (now >= prayerTimes.dhuhr && now < prayerTimes.asr) {
+    current = 'dhuhr';
+  } else if (now >= prayerTimes.asr && now < prayerTimes.maghrib) {
+    current = 'asr';
+  } else if (now >= prayerTimes.maghrib && now < prayerTimes.isha) {
+    current = 'maghrib';
+  } else {
+    // If current time is after Isha or before Fajr, mark Isha
+    current = 'isha';
+  }
+
+  // Map to the time elements that exist in the compact layout
+  const mapping = {
+    fajr: fajrT,
+    dhuhr: zoharT,
+    asr: asrT,
+    maghrib: maghribT,
+    isha: ishaT,
+    sunrise: sunRise
+  };
+
+  // Remove `current` from all possible targets (time text nodes and optional card elements)
+  const allTargets = [
+    fajrT,
+    zoharT,
+    asrT,
+    maghribT,
+    ishaT,
+    sunRise,
+    fajrCard,
+    dhuhrCard,
+    asrCard,
+    maghribCard,
+    ishaCard,
+    sunriseCard
+  ];
+  allTargets.forEach((el) => { if (el) el.classList.remove('current'); });
+
+  const el = mapping[current];
+  if (el) el.classList.add('current');
+}
+
+// Refresh highlight every 30 seconds
+setInterval(updateActivePrayer, 30 * 1000);
 
 
   // Base URL for the audio

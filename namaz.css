@@ -3,6 +3,18 @@
   padding: 0;
   margin: 0;
 }
+
+/* Prayer card highlight for currently active prayer */
+.prayer-card {
+  transition: transform 220ms ease, box-shadow 220ms ease, border 220ms ease;
+}
+
+.prayer-card.current {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(6, 84, 60, 0.22), 0 0 0 4px rgba(255, 215, 0, 0.14) inset;
+  border: 3px solid rgba(255, 215, 0, 0.95);
+}
+
 body {
   display: flex;
   background-color: #c2a25d;
@@ -226,13 +238,23 @@ body {
   align-items: center;
   width: 40%;
 }
+
+/* Highlight style for the active time inside the compact layout */
+.correcttime .current {
+  background: linear-gradient(90deg, rgba(6,84,60,0.95), rgba(37,150,110,0.95));
+  color: #fff;
+  padding: 0px 10px;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(6,84,60,0.18);
+  /* transform: translateY(-4px); */
+}
 .namaz .arname {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
   width: 30%;
-
+  font-size: 0.8rem;
   font-weight: 900;
 }
 
