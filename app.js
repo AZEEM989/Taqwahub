@@ -123,42 +123,37 @@ const getTiming = async () => {
         function convertTo12Hour(time) {
             let [hours, minutes] = time.split(':');
             let period = 'A.M';
-          
-            // Convert hours to 12-hour format
-            hours = parseInt(hours);
+
+            hours = parseInt(hours, 10);
             if (hours >= 12) {
               period = 'P.M';
-              if (hours > 12) {
-                hours -= 12;
-              }
+              if (hours > 12) hours -= 12;
             } else if (hours === 0) {
               hours = 12;
             }
-          
-            return `${hours}:${minutes}`;
+
+            return `${hours}:${minutes} ${period}`;
           }
-           function convertTo12Hour1(time) {
-            let [hours, minutes,seconds] = time.split(':');
+
+          // Format a Date object into 12-hour `HH:MM:SS AM/PM`
+          function formatDateTo12(date) {
+            let hours = date.getHours();
+            let minutes = String(date.getMinutes()).padStart(2, '0');
+            let seconds = String(date.getSeconds()).padStart(2, '0');
             let period = 'A.M';
-          
-            // Convert hours to 12-hour format
-            hours = parseInt(hours);
             if (hours >= 12) {
               period = 'P.M';
-              if (hours > 12) {
-                hours -= 12;
-              }
+              if (hours > 12) hours -= 12;
             } else if (hours === 0) {
               hours = 12;
             }
-          
-            return `${hours}:${minutes}:${seconds}`;
+            return `${hours}:${minutes}:${seconds} ${period}`;
           }
 
         let data = await response.json();
         console.log(data);
-        function timeUpdate(){const cuTime=new Date().toLocaleTimeString();
-          currentTime.innerText=convertTo12Hour1(cuTime);
+        function timeUpdate(){
+          currentTime.innerText = formatDateTo12(new Date());
         }
         setInterval(timeUpdate,1000);
         timeUpdate();
@@ -210,18 +205,31 @@ function updateActivePrayer() {
   if (!prayerTimes || !prayerTimes.fajr) return;
   const now = new Date();
 
+  // Only consider the five obligatory prayers for the active box
+  const order = ['fajr', 'dhuhr', 'asr', 'maghrib', 'isha'];
   let current = 'isha';
-  if (now >= prayerTimes.fajr && now < prayerTimes.sunrise) {
-    current = 'fajr';
-  } else if (now >= prayerTimes.dhuhr && now < prayerTimes.asr) {
-    current = 'dhuhr';
-  } else if (now >= prayerTimes.asr && now < prayerTimes.maghrib) {
-    current = 'asr';
-  } else if (now >= prayerTimes.maghrib && now < prayerTimes.isha) {
-    current = 'maghrib';
-  } else {
-    // If current time is after Isha or before Fajr, mark Isha
-    current = 'isha';
+
+  for (let i = 0; i < order.length; i++) {
+    const key = order[i];
+    const nextKey = order[(i + 1) % order.length];
+    const start = prayerTimes[key];
+    const end = prayerTimes[nextKey];
+
+    if (!start || !end) continue;
+
+    if (key !== 'isha') {
+      // normal interval: start <= now < end
+      if (now >= start && now < end) {
+        current = key;
+        break;
+      }
+    } else {
+      // isha interval wraps to next day's fajr: now >= isha OR now < fajr
+      if (now >= start || now < prayerTimes.fajr) {
+        current = 'isha';
+        break;
+      }
+    }
   }
 
   // Map to the time elements that exist in the compact layout
@@ -230,8 +238,7 @@ function updateActivePrayer() {
     dhuhr: zoharT,
     asr: asrT,
     maghrib: maghribT,
-    isha: ishaT,
-    sunrise: sunRise
+    isha: ishaT
   };
 
   // Remove `current` from all possible targets (time text nodes and optional card elements)
@@ -241,13 +248,11 @@ function updateActivePrayer() {
     asrT,
     maghribT,
     ishaT,
-    sunRise,
     fajrCard,
     dhuhrCard,
     asrCard,
     maghribCard,
-    ishaCard,
-    sunriseCard
+    ishaCard
   ];
   allTargets.forEach((el) => { if (el) el.classList.remove('current'); });
 
